@@ -4,10 +4,13 @@
 
 BOOL debug = false;
 
-int main()
+static int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nShowCmd)
 {
-	if (!debug) {
-		FreeConsole();
+	if (debug) {
+		AllocConsole();
+
+		FILE* file = nullptr;
+		freopen_s(&file, "CONOUT$", "w", stdout);
 	}
 
 	while (1) {
@@ -16,3 +19,4 @@ int main()
 		EnumWindows(EnumWindowCallback, NULL);
 	}
 }
+
