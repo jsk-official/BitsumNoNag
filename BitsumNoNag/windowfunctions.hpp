@@ -13,5 +13,7 @@ static BOOL CALLBACK EnumWindowCallback(HWND hWnd, LPARAM lparam) {
         }
     }
 
+    delete[] buffer;
+
     return TRUE;
 }
